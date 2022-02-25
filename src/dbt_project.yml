@@ -1,0 +1,17 @@
+config-version: 2
+name: 'movies'
+version: '1.0.0'
+
+profile: 'default'
+
+source-paths: ["models"]  # path where dbt models are stored
+data-paths: ["data"]      # path where seed files are stored, if any
+target-path: "target"     # directory which will store compiled SQL files
+clean-targets:            # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+models:
+  movies:
+    materialized: table
+    enabled: true

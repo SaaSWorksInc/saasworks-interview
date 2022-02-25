@@ -1,0 +1,22 @@
+services:
+    postgres:
+      image: postgres:13
+      environment:
+        POSTGRES_USER: dbt
+        POSTGRES_PASSWORD: dbt
+        POSTGRES_DB: movies
+      volumes:
+        - ./movie-data:/movie-data
+      ports:
+        - "5432:5432"
+    dbt:
+      image: fishtownanalytics/dbt:0.21.1
+      environment:
+        POSTGRES_HOST: postgres
+        POSTGRES_PORT: 5432
+        POSTGRES_DB: movies
+        POSTGRES_USER: dbt
+        POSTGRES_PASSWORD: dbt
+      volumes:
+        - ./src:/usr/app
+        - ./src/profiles.yml:/root/.dbt/profiles.yml
