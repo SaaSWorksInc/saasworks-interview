@@ -1,0 +1,2 @@
+movie-data/movies_metadata.csv.gz filter=lfs diff=lfs merge=lfs -text
+movie-data/ratings.csv.gz filter=lfs diff=lfs merge=lfs -text
