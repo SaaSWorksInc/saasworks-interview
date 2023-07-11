@@ -1,3 +1,5 @@
 src/target
 src/dbt_modules
 src/logs
+local.db
+local.db.wal

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dbt-interview"
+version = "0.1.0"
+description = "SaasWorks DBT Interview project"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "dbt_interview"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+duckdb = "^0.8.1"
+dbt-core = "^1.5.2"
+dbt-duckdb = "^1.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
