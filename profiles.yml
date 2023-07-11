@@ -1,0 +1,9 @@
+config:
+  use_colors: true
+  send_anonymous_usage_stats: false
+default:
+  outputs:
+    default:
+      threads: 1
+      type: duckdb
+      path: local.db

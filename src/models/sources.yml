@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: movies
-    schema: sources
-    tables:
-      - name: movie_ratings
-      - name: movie_metadata

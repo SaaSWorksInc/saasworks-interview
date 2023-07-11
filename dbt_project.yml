@@ -1,0 +1,18 @@
+config-version: 2
+name: "movies"
+version: "1.0.0"
+
+profile: "default"
+
+target-path: "target" # directory which will store compiled SQL files
+clean-targets: # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_modules"
+
+models:
+  movies:
+    materialized: table
+    enabled: true
+
+seeds:
+  fast: true
