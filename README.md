@@ -5,6 +5,7 @@
 - Poetry (https://python-poetry.org/docs/#installation)
 - DBT Knowledge (https://docs.getdbt.com/dbt-cli/installation)
 - DuckDB (https://duckdb.org/docs/installation/)
+- GitLFS (https://git-lfs.github.com/)
 
 ## Setup
 
