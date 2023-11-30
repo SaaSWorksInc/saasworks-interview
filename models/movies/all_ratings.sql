@@ -1,3 +1,3 @@
 SELECT 
     *
-FROM "movie-data/ratings.csv"
+FROM "movie-data/ratings.csv.gz"
