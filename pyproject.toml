@@ -9,7 +9,7 @@ packages = [{include = "dbt_interview"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-duckdb = "^0.8.1"
+duckdb = "^0.9.2"
 dbt-core = "^1.5.2"
 dbt-duckdb = "^1.5.2"
 
