@@ -81,3 +81,7 @@ Answer the following questions by using dbt to build a table for each item below
    - [ ] Create another table to show the favorite genres for each user - including one
          column for most watched genre, and another for top-rated genre
 1. Go back over the code you wrote. Are there any areas of duplication that could be cleaned up by refactoring queries, utilizing DBT to introduce intermediate models that are reused, vs copying the same code across multiple related models?
+
+## AI Exercise
+
+If you are looking for the AI exercise please refer to [AI Exercise](AI-Interview.md).

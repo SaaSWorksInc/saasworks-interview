@@ -1,5 +1,9 @@
 # AI Exercise
 
+| Note                                                                       |
+| -------------------------------------------------------------------------- |
+| This exercise builds on top of the DBT exercise in the [README](README.md) |
+
 ## Prerequisites
 
 - Poetry (https://python-poetry.org/docs/#installation)
@@ -21,7 +25,7 @@ poetry install
 
 ## Database Details
 
-We are using DuckDB in this exercise. DuckDB is a SQL database that is designed to be embedded in other applications. It is a great tool for data exploration and analysis, and is also a great tool for testing and development.
+We are using DuckDB in this exercise. DuckDB is an mbeddable database like SQLLite however it's highly scalable and runs in memory for OLAP/Analytics. It is a great tool for data exploration and analysis, and is also a great tool for testing and development.
 
 You can read more about it here: https://duckdb.org/.
 
