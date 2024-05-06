@@ -10,7 +10,7 @@ packages = [{include = "dbt_interview"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 duckdb = "^0.10.2"
-dbt-core = "^1.7.13"
+dbt-core = "^1.7.14"
 dbt-duckdb = "^1.7.4"
 
 
