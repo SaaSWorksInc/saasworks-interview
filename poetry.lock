@@ -268,13 +268,13 @@ files = [
 
 [[package]]
 name = "dbt-core"
-version = "1.7.14"
+version = "1.7.17"
 description = "With dbt, data analysts and engineers can build analytics the way engineers build applications."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "dbt_core-1.7.14-py3-none-any.whl", hash = "sha256:e142e62d30178d598ad9463b8d162cfa8238806622fee7e63bf8b3236551feec"},
-    {file = "dbt_core-1.7.14.tar.gz", hash = "sha256:86dc6e84c356f075ae29896ef315c679d9bc49d96ae24124a105d5ecc79de43b"},
+    {file = "dbt_core-1.7.17-py3-none-any.whl", hash = "sha256:91cd0ceca29d77377988bca94db02c9d6f3debdd604edbde702008380b87fc4e"},
+    {file = "dbt_core-1.7.17.tar.gz", hash = "sha256:efd341e83252c35d9dbe0d2d0bfd874125c093c125250bebc7ca741a9145db80"},
 ]
 
 [package.dependencies]
@@ -1274,4 +1274,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "082e687d95f0bedca4602190b4676eb9ee7e0da42231327822b16a5355190a17"
+content-hash = "c21a14cb271fd218f8d9b3a3c84cfa31e5820188e5fb109f82496382fc45a3eb"
