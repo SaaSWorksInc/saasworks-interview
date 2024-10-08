@@ -9,7 +9,18 @@
 
 ## Setup
 
-Clone this repo (requires [git-lfs](https://git-lfs.github.com/))
+**Important:** You need to install [git-lfs](https://git-lfs.github.com/) before cloning this repository. If you're on a Mac using Homebrew, you can do:
+
+```
+brew install git-lfs 
+git lfs install
+```
+
+After git-lfs has been installed, clone this repo:
+
+```
+git clone https://github.com/saasworksinc/saasworks-interview.git
+```
 
 Run poetry install to set up dependencies:
 
@@ -19,21 +30,21 @@ poetry install
 
 ## Database Details
 
-We are using DuckDB in this exercise. DuckDB is a SQL database that is designed to be embedded in other applications. It is a great tool for data exploration and analysis, and is also a great tool for testing and development.
+We are using DuckDB and DBT in this exercise. 
 
-You can read more about it here: https://duckdb.org/.
+DuckDB is a SQL database that is designed to be embedded in other applications. It is a great tool for data exploration and analysis, and is also a great tool for testing and development. You can read more about it here: https://duckdb.org/.
+
+DBT is a data transformation framework that enables you to build and execute multi-step data transformations. You can read more about it here: https://www.getdbt.com/product/what-is-dbt.
 
 ## Defining dbt Models
 
-Define dbt models in the `src/models/movies` directory. You will see a couple of samples already in place. Note the
-pattern for referencing source tables, for example:
+Define dbt models in the `src/models/movies` directory. You will see a couple of samples already in place. When you run DBT, it will find the `*.sql` files under the `models` directory. For each file, it will run the query contained within, and create a table of the same name, containing the results of the query. 
 
-- `{{ source('movies', 'movie_metadata') }}`
-- `{{ source('movies', 'movie_ratings') }}`
-
-Also note the pattern for referencing other tables that are also calculated by dbt, for example:
+Note the pattern for referencing other tables that are also calculated by dbt, for example:
 
 - `{{ ref('all_movies') }}`
+
+When DBT encounters a `ref`, it will know that one model depends on another. For example, the `movie_count` model depends on `all_movies`. DBT will handle running models in the appropriate order. `ref` gives you a way to have one model consume the results of one or more predecessor models in your DBT project.
 
 ## Running DBT
 
@@ -51,6 +62,19 @@ dbt run --select all_movies
 dbt run --select +all_movies
 ```
 
+## Inspecting Data
+
+You can inspect data within duckdb. After running dbt for the first time (as shown above), a file `local.db` will be created, which is a duckdb database file. You can open this with the duckdb CLI 
+as follows:
+
+```
+duckdb local.db
+```
+
+Of course, you can also use your preferred SQL IDE, such as DataGrip, TablePlus, etc, assuming that it supports DuckDB.
+
+Generally speaking, DuckDB's SQL syntax is fully featured, friendly, and mostly Postgres-compatible. Their documentation is quite good as well. 
+
 ## Interview Exercise Instructions
 
 Explore the sources schema – there are two tables: one containing movies, and another containing movie ratings.
@@ -58,7 +82,7 @@ Answer the following questions by using dbt to build a table for each item below
 
 **Take Home Exercise**
 
-1. Read through the (DuckDB Data Types description)[https://duckdb.org/docs/sql/data_types/overview] and update the two sample models to cast columns to the best type for each column. Once you are done send an email back with a patch file and a description of why you chose the types you did to your interview team.
+1. Read through the (DuckDB Data Types description)[https://duckdb.org/docs/sql/data_types/overview] and update the `all_movies` and `all_ratings` models to cast columns to the best type for each column. Once you are done send an email back with a patch file and a description of why you chose the types you did to your interview team.
 
 **In Person Exercise**
 
