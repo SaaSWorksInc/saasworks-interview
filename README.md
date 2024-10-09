@@ -3,7 +3,6 @@
 ## Prerequisites
 
 - Poetry (https://python-poetry.org/docs/#installation)
-- DBT Knowledge (https://docs.getdbt.com/dbt-cli/installation)
 - DuckDB (https://duckdb.org/docs/installation/)
 - GitLFS (https://git-lfs.github.com/)
 
@@ -12,7 +11,7 @@
 **Important:** You need to install [git-lfs](https://git-lfs.github.com/) before cloning this repository. If you're on a Mac using Homebrew, you can do:
 
 ```
-brew install git-lfs 
+brew install git-lfs
 git lfs install
 ```
 
@@ -30,7 +29,7 @@ poetry install
 
 ## Database Details
 
-We are using DuckDB and DBT in this exercise. 
+We are using DuckDB and DBT in this exercise.
 
 DuckDB is a SQL database that is designed to be embedded in other applications. It is a great tool for data exploration and analysis, and is also a great tool for testing and development. You can read more about it here: https://duckdb.org/.
 
@@ -38,7 +37,7 @@ DBT is a data transformation framework that enables you to build and execute mul
 
 ## Defining dbt Models
 
-Define dbt models in the `src/models/movies` directory. You will see a couple of samples already in place. When you run DBT, it will find the `*.sql` files under the `models` directory. For each file, it will run the query contained within, and create a table of the same name, containing the results of the query. 
+Define dbt models in the `src/models/movies` directory. You will see a couple of samples already in place. When you run DBT, it will find the `*.sql` files under the `models` directory. For each file, it will run the query contained within, and create a table of the same name, containing the results of the query.
 
 Note the pattern for referencing other tables that are also calculated by dbt, for example:
 
@@ -64,7 +63,7 @@ dbt run --select +all_movies
 
 ## Inspecting Data
 
-You can inspect data within duckdb. After running dbt for the first time (as shown above), a file `local.db` will be created, which is a duckdb database file. You can open this with the duckdb CLI 
+You can inspect data within duckdb. After running dbt for the first time (as shown above), a file `local.db` will be created, which is a duckdb database file. You can open this with the duckdb CLI
 as follows:
 
 ```
@@ -73,7 +72,7 @@ duckdb local.db
 
 Of course, you can also use your preferred SQL IDE, such as DataGrip, TablePlus, etc, assuming that it supports DuckDB.
 
-Generally speaking, DuckDB's SQL syntax is fully featured, friendly, and mostly Postgres-compatible. Their documentation is quite good as well. 
+Generally speaking, DuckDB's SQL syntax is fully featured, friendly, and mostly Postgres-compatible. Their documentation is quite good as well.
 
 ## Interview Exercise Instructions
 
