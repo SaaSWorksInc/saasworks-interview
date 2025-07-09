@@ -1,9 +1,13 @@
-config:
-  use_colors: true
+flags:
   send_anonymous_usage_stats: false
+
 default:
   outputs:
     default:
-      threads: 1
       type: duckdb
       path: local.db
+      threads: 1
+      attach:
+        - alias: ducklake_db
+          path: ducklake:sqlite:./storage/metadata.sqlite
+  target: default

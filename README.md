@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Poetry (https://python-poetry.org/docs/#installation)
+- Python 3.10 or higher (https://www.python.org/downloads/)
 - DuckDB (https://duckdb.org/docs/installation/)
 - GitLFS (https://git-lfs.github.com/)
 
@@ -34,6 +35,14 @@ We are using DuckDB and DBT in this exercise.
 DuckDB is a SQL database that is designed to be embedded in other applications. It is a great tool for data exploration and analysis, and is also a great tool for testing and development. You can read more about it here: https://duckdb.org/.
 
 DBT is a data transformation framework that enables you to build and execute multi-step data transformations. You can read more about it here: https://www.getdbt.com/product/what-is-dbt.
+
+## Creating DuckLake
+
+Before we get started, we will create a local ducklake that we can use with dbt
+
+```
+duckdb :memory: "ATTACH 'ducklake:sqlite:./storage/metadata.sqlite' (DATA_PATH 'storage');"
+```
 
 ## Defining dbt Models
 
@@ -67,7 +76,28 @@ You can inspect data within duckdb. After running dbt for the first time (as sho
 as follows:
 
 ```
-duckdb local.db
+duckdb -ui
+
+# Run the following sql to attach the ducklake as a database in the ui
+ATTACH 'ducklake:sqlite:./storage/metadata.sqlite' as ducklake_db;
+
+# You now can query the models you created in dbt
+```
+
+## Running DBT
+
+We are using poetry to manage dependencies and to run dbt. To run dbt, first activate the poetry shell:
+
+```
+poetry shell
+```
+
+Then run dbt. You can pass commands to dbt to run specific models and ancestors. For more information on node selection you can read the documentation here: https://docs.getdbt.com/reference/node-selection/syntax
+
+```
+dbt run
+dbt run --select all_movies
+dbt run --select +all_movies
 ```
 
 Of course, you can also use your preferred SQL IDE, such as DataGrip, TablePlus, etc, assuming that it supports DuckDB.
