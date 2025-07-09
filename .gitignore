@@ -5,3 +5,5 @@ logs
 target
 local.db
 local.db.wal
+.user.yml
+storage
